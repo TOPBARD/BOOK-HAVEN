@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../shared/context/AuthProvider";
 import { useForm, ValidationError } from "@formspree/react";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
  * */
 const Contact: React.FC = () => {
   const { user } = useAuth();
+  const [fullName, setFullName] = useState<string>("");
 
   // Constructing the user's full name and email
   const userName = user?.firstName.concat("").concat(user.lastName);
@@ -172,7 +173,10 @@ const Contact: React.FC = () => {
                       name="name"
                       placeholder="New User"
                       required
-                      defaultValue={userName}
+                      value={fullName}
+                      onChange={(e) =>
+                        setFullName(e.target.value.replace(/[^a-z\s]/gi, ""))
+                      }
                       className="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-accent focus:ring-accent focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                     />
                     <ValidationError

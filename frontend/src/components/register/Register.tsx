@@ -286,7 +286,9 @@ const Register: React.FC = () => {
                         required
                         pattern="[a-zA-Z]+"
                         value={firstName}
-                        onChange={(e) => setFirstname(e.target.value)}
+                        onChange={(e) =>
+                          setFirstname(e.target.value.replace(/[^a-z]/gi, ""))
+                        }
                       />
                     </div>
                   </div>
@@ -306,7 +308,9 @@ const Register: React.FC = () => {
                         pattern="[a-zA-Z]+"
                         required
                         value={lastName}
-                        onChange={(e) => setLastname(e.target.value)}
+                        onChange={(e) =>
+                          setLastname(e.target.value.replace(/[^a-z]/gi, ""))
+                        }
                       />
                     </div>
                   </div>
