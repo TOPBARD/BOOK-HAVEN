@@ -99,6 +99,6 @@ export class BookController {
   @UseGuards(JwtAuthGuard, AdminGuard)
   @Delete(':id')
   async deleteBook(@Param('id') id: string): Promise<Book> {
-    return await this.bookService.deleteBook(id);
+    return await this.bookService.deleteBook(id)
   }
 }
