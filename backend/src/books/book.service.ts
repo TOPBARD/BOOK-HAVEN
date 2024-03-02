@@ -5,7 +5,8 @@ import { Book } from './schema/book.schema';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { BookDetails } from './schema/book-details.schema';
-import { BookCategory } from 'src/shared/emun/Book-category';
+import { BookCategory } from '../../src/shared/emun/Book-category';
+import { BookSpecialCategory } from '../../src/shared/emun/Book-special-Category';
 
 @Injectable()
 export class BookService {
@@ -114,7 +115,7 @@ export class BookService {
    * @returns A list of books matching the specified special category.
    */
   public async findBookBySpecialCategory(
-    bookSpecialCategory: string,
+    bookSpecialCategory: BookSpecialCategory,
   ): Promise<Book[]> {
     const books = await this.bookModel
       .find({ bookSpecialCategory })

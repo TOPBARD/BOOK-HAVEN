@@ -11,10 +11,11 @@ import {
 import { CreateBookDto } from './dto/create-book.dto';
 import { BookService } from './book.service';
 import { UpdateBookDto } from './dto/update-book.dto';
-import { BookCategory } from 'src/shared/emun/Book-category';
+import { BookCategory } from '../../src/shared/emun/Book-category';
 import { Book } from './schema/book.schema';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { BookSpecialCategory } from '../../src/shared/emun/Book-special-Category';
 
 @Controller('books')
 export class BookController {
@@ -69,7 +70,7 @@ export class BookController {
    */
   @Get('special-category/:category')
   async findBookBySpecialCategory(
-    @Param('category') bookSpecialCategory: string,
+    @Param('category') bookSpecialCategory: BookSpecialCategory,
   ): Promise<Book[]> {
     return await this.bookService.findBookBySpecialCategory(
       bookSpecialCategory,

@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
 import { BookDetails } from './book-details.schema';
-import { BookSpecialCategory } from 'src/shared/emun/Book-special-Category';
+import { BookSpecialCategory } from '../../shared/emun/Book-special-Category';
+import { BookCategory } from '../../shared/emun/Book-category';
 
 @Schema({ timestamps: true })
 export class Book {
@@ -11,8 +12,8 @@ export class Book {
   @Prop({ type: String })
   bookAuthor: string;
 
-  @Prop({ type: String })
-  bookCategory: string;
+  @Prop({ type: BookCategory })
+  bookCategory: BookCategory;
 
   @Prop({ type: String, default: BookSpecialCategory.RECOMMENDED })
   bookSpecialCategory: BookSpecialCategory;

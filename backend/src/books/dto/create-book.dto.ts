@@ -9,7 +9,8 @@ import {
   MinLength,
   MaxLength,
 } from 'class-validator';
-import { BookSpecialCategory } from 'src/shared/emun/Book-special-Category';
+import { BookSpecialCategory } from '../../shared/emun/Book-special-Category';
+import { BookCategory } from '../../../src/shared/emun/Book-category';
 
 class BookDetailsDto {
   @IsNotEmpty({ message: 'Book price cannot be empty' })
@@ -35,8 +36,8 @@ export class CreateBookDto {
   bookAuthor: string;
 
   @IsNotEmpty({ message: 'Book category cannot be empty' })
-  @IsString({ message: 'Book category must be a string' })
-  bookCategory: string;
+  @IsEnum({ message: 'Invalid Book Category' })
+  bookCategory: BookCategory;
 
   @IsOptional()
   @IsEnum(BookSpecialCategory, { message: 'Invalid special category' })
