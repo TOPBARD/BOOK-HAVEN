@@ -20,7 +20,7 @@ const PopularBooks: React.FC = () => {
   const fetchPopularBooksData = async (): Promise<void> => {
     try {
       const response = await axios.get<Book[]>(
-        `http://localhost:5000/books/special-category/${BookSpecialCategory.POPULAR}`
+        `${process.env.BACKEND_URL}/books/special-category/${BookSpecialCategory.POPULAR}`
       );
       setPopularBooks(response.data);
     } catch (error) {

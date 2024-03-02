@@ -18,7 +18,7 @@ const Register: React.FC = () => {
 
     try {
       // Send registration request to the server
-      await axios.post(`http://localhost:5000/auth/register`, userData);
+      await axios.post(`${process.env.BACKEND_URL}/auth/register`, userData);
       toast.success("Registration Successful!!");
       setTimeout(() => {
         window.location.href = "/login";

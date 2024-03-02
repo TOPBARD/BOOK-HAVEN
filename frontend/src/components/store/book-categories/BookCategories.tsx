@@ -24,8 +24,8 @@ export default function BookCategories() {
   }, [categories]);
 
   const fetchBooksData = async () => {
-    const booksData = await axios.get(
-      `http://localhost:5000/books/category/${categories}`
+    const booksData = await axios.get<Book[]>(
+      `${process.env.BACKEND_URL}/books/category/${categories}`
     );
     setBooks(booksData.data);
   };

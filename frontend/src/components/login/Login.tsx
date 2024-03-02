@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     };
     try {
       const response: AxiosResponse<{ access_token: string }> =
-        await axios.post("http://localhost:5000/auth/login", loginData);
+        await axios.post(`${process.env.BACKEND_URL}/auth/login`, loginData);
       storeTokenInLs(response.data.access_token);
       toast.success("Login Successful!!");
       setTimeout(() => {

@@ -43,11 +43,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Function to fetch user data from the server
   const fetchUserData = async () => {
     try {
-      const userData = await axios.get<User>("http://localhost:5000/user/me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const userData = await axios.get<User>(
+        `${process.env.BACKEND_URL}/user/me`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUser(userData.data);
     } catch (error) {
       // Handle errors by signing out the user

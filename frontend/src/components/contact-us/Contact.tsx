@@ -9,12 +9,12 @@ import toast from "react-hot-toast";
  * */
 const Contact: React.FC = () => {
   const { user } = useAuth();
-  const [fullName, setFullName] = useState<string>("");
 
   // Constructing the user's full name and email
   const userName = user?.firstName.concat("").concat(user.lastName);
   const userEmail = user?.email;
 
+  const [fullName, setFullName] = useState<string>(userName || "");
   // Formspree hook for handling form submission
   const [state, handleSubmit, reset] = useForm("mgegkpgr");
 

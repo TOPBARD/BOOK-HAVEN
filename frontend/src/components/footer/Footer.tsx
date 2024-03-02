@@ -30,7 +30,7 @@ export default function Footer() {
     }
     try {
       const response: AxiosResponse<User> = await axios.post(
-        "http://localhost:5000/user/subscribe",
+        `${process.env.BACKEND_URL}/user/subscribe`,
         { email },
         {
           headers: {

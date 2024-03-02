@@ -30,7 +30,7 @@ export default function SingleBookComponent() {
   const fetchSingleBookData = async () => {
     try {
       const singleBook = await axios.get<Book>(
-        `http://localhost:5000/books/${id}`
+        `${process.env.BACKEND_URL}/books/${id}`
       );
       // Set the book state with the fetched data
       setBook(singleBook.data);

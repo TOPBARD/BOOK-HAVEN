@@ -40,7 +40,7 @@ export default function CheckoutBtn({
     try {
       // Send a POST request to the server to create a checkout session
       const response = await axios.post(
-        "http://localhost:5000/orders/checkout",
+        `${process.env.BACKEND_URL}/orders/checkout`,
         cartObj
       );
 

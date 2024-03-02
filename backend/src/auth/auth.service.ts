@@ -43,7 +43,6 @@ export class AuthService {
    */
   public async validateUser(email: string, password: string): Promise<User> {
     const lowerEmail = email.toLowerCase();
-    console.log('Lower email', lowerEmail);
     const user = await this.userService.findOne(lowerEmail);
     const comparePass = await bcrypt.compare(password, user.password);
 
