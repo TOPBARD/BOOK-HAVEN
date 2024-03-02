@@ -5,5 +5,5 @@ export interface AuthContextProps {
   signOutUser: () => void;
   isLoggedIn: boolean;
   user?: User;
-  token : string
+  token: string;
 }

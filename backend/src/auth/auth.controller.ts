@@ -40,7 +40,9 @@ export class AuthController {
    */
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  public async login(@Body() loginUserDto: LoginUserDto): Promise<{ access_token: string }> {
+  public async login(
+    @Body() loginUserDto: LoginUserDto,
+  ): Promise<{ access_token: string }> {
     return await this.authService.signIn(loginUserDto);
   }
 }
