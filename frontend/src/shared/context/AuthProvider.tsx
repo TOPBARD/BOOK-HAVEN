@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // Provide the context values to the AuthContext.Provider
   return (
     <AuthContext.Provider
-      value={{ storeTokenInLs, signOutUser, isLoggedIn, user , token }}
+      value={{ storeTokenInLs, signOutUser, isLoggedIn, user, token }}
     >
       {children}
     </AuthContext.Provider>

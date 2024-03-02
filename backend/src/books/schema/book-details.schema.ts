@@ -2,7 +2,6 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({ timestamps: true })
 export class BookDetails {
-
   @Prop({ type: Number })
   bookPrice: number;
 
@@ -11,7 +10,6 @@ export class BookDetails {
 
   @Prop({ type: Boolean, default: true })
   isPresentInStore: boolean;
-
 }
 
 export const BookDetailsSchema = SchemaFactory.createForClass(BookDetails);

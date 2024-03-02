@@ -14,6 +14,7 @@ import { UpdateBookDto } from './dto/update-book.dto';
 import { BookCategory } from 'src/shared/emun/Book-category';
 import { Book } from './schema/book.schema';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
+import { AdminGuard } from 'src/auth/guard/admin.guard';
 
 @Controller('books')
 export class BookController {
@@ -24,7 +25,7 @@ export class BookController {
    * @param bookDto - The data for creating a new book.
    * @returns The created book.
    */
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, AdminGuard)
   @Post()
   async insertBook(@Body() bookDto: CreateBookDto): Promise<Book> {
     return await this.bookService.insertBook(bookDto);
@@ -81,7 +82,7 @@ export class BookController {
    * @param updateBookDto - The data for updating the book.
    * @returns The updated book.
    */
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, AdminGuard)
   @Put(':id')
   async updateBook(
     @Param('id') id: string,
@@ -95,9 +96,9 @@ export class BookController {
    * @param id - The ID of the book to delete.
    * @returns The deleted book.
    */
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, AdminGuard)
   @Delete(':id')
   async deleteBook(@Param('id') id: string): Promise<Book> {
-    return await this.bookService.deleteBook(id);
+    return await this.bookService.deleteBook(id)
   }
 }
