@@ -13,8 +13,8 @@ import { BookService } from './book.service';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { BookCategory } from '../../src/shared/emun/Book-category';
 import { Book } from './schema/book.schema';
-import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
-import { AdminGuard } from 'src/auth/guard/admin.guard';
+import { JwtAuthGuard } from '../../src/auth/guard/jwt-auth.guard';
+import { AdminGuard } from '../../src/auth/guard/admin.guard';
 import { BookSpecialCategory } from '../../src/shared/emun/Book-special-Category';
 
 @Controller('books')

@@ -8,9 +8,9 @@ import {
 import { User } from './schema/user.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
-import { RegisterUserDto } from 'src/auth/dto/register-user.dto';
+import { RegisterUserDto } from '../../src/auth/dto/register-user.dto';
 import * as bcrypt from 'bcrypt';
-import { AuthService } from 'src/auth/auth.service';
+import { AuthService } from '../../src/auth/auth.service';
 import { Request } from 'express';
 
 @Injectable()

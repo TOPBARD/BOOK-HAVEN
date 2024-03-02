@@ -1,7 +1,7 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { OrderService } from './orders.service';
 import { CartDetailsDto } from './dto/CartDetails.dto';
-import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
+import { JwtAuthGuard } from '../../src/auth/guard/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard)
 @Controller('orders')

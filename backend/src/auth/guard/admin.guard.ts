@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { User } from 'src/user/schema/user.schema';
+import { User } from '../../user/schema/user.schema';
 
 @Injectable()
 export class AdminGuard implements CanActivate {

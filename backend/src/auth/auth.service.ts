@@ -5,12 +5,12 @@ import {
   forwardRef,
 } from '@nestjs/common';
 import { RegisterUserDto } from './dto/register-user.dto';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../../src/user/user.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { LoginUserDto } from './dto/login-user.dto';
 import { Request } from 'express';
-import { User } from 'src/user/schema/user.schema';
+import { User } from '../../src/user/schema/user.schema';
 
 /**
  * The `AuthService` provides authentication and authorization services.

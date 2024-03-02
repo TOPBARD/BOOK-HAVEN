@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { Request } from 'express';
 import { UserService } from './user.service';
-import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
+import { JwtAuthGuard } from '../../src/auth/guard/jwt-auth.guard';
 import { SubscribeUserDto } from './dto/subscribe-user.dto';
 
 @UseGuards(JwtAuthGuard)
