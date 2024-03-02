@@ -15,14 +15,24 @@ const Contact: React.FC = () => {
   const userEmail = user?.email;
 
   // Formspree hook for handling form submission
-  const [state, handleSubmit] = useForm("mgegkpgr");
+  const [state, handleSubmit, reset] = useForm("mgegkpgr");
 
   // Effect to show an alert when the message is sent successfully
   useEffect(() => {
     if (state.succeeded) {
       toast.success("Message Send Successfully!!");
+      reset();
     }
   }, [state.succeeded]);
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (user) {
+      handleSubmit(e);
+    } else {
+      toast.error("Please log in to send a message.");
+    }
+  };
 
   return (
     <section
@@ -150,7 +160,7 @@ const Contact: React.FC = () => {
                 </p>
 
                 {/* Contact form */}
-                <form className="mt-6" onSubmit={handleSubmit}>
+                <form className="mt-6" onSubmit={handleFormSubmit}>
                   {/* Full Name input */}
                   <div className="flex-1">
                     <label className="block mb-2 font-semibold text-sm text-gray-600 dark:text-gray-200">
