@@ -1,0 +1,35 @@
+name: Format Check
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          cd frontend  # Navigate to your frontend directory
+          npm ci
+          cd ../backend  # Navigate to your backend directory
+          npm ci
+
+      # Run Prettier check
+      - name: Check code formatting
+        run: |
+          cd frontend  # Navigate to your frontend directory
+          npx run prettier:check
+          cd ../backend  # Navigate to your backend directory
+          npx run prettier:check
