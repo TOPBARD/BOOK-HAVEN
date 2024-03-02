@@ -25,8 +25,6 @@ const Navbar: React.FC = () => {
   // Access auth context to check user authentication status and perform user-related actions
   const { isLoggedIn, signOutUser, user } = useAuth();
 
-  console.log("User data on nav =", user);
-
   // State to manage the visibility of the user dropdown
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 

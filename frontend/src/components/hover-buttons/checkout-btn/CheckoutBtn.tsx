@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CartItem } from "../../../shared/interface/CartItem";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
+import toast from "react-hot-toast";
 
 /**
  * CheckoutBtn component provides a button for users to proceed to checkout.
@@ -49,7 +50,7 @@ export default function CheckoutBtn({
         sessionId: response.data.sessionId,
       });
     } catch (error) {
-      console.error("Error during checkout:", error);
+      toast.error("Error during checkout");
     }
   };
 

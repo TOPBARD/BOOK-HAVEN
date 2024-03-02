@@ -6,6 +6,7 @@ import { BookOpen, Clock, PackageCheck, RefreshCw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Book } from "../../shared/interface/Books";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 /**
  * SingleBookComponent displays detailed information about a single book.
@@ -35,7 +36,7 @@ export default function SingleBookComponent() {
       // Set the book state with the fetched data
       setBook(singleBook.data);
     } catch (error) {
-      console.error("Error fetching single book data:", error);
+      toast.error("Error fetching single book data, Please try again!");
     }
   };
 

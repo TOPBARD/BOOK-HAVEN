@@ -24,7 +24,7 @@ const PopularBooks: React.FC = () => {
       );
       setPopularBooks(response.data);
     } catch (error) {
-      console.error("Error fetching popular books:", error);
+      console.log("Error fetching popular books");
     }
   };
 

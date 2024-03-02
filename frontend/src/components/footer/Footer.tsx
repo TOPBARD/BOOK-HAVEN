@@ -45,8 +45,6 @@ export default function Footer() {
       if (axios.isAxiosError(error) && error.response?.status === 409) {
         // User is already subscribed, show alert
         toast.error("User is already subscribed to the newsletter");
-      } else {
-        console.error(error);
       }
     }
   };

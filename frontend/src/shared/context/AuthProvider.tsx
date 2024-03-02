@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } catch (error) {
       // Handle errors by signing out the user
       signOutUser();
-      console.error("Error fetching user data:", error);
+      console.log("Error fetching user data");
     }
   };
 

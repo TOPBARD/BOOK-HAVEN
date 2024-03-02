@@ -28,7 +28,6 @@ const Register: React.FC = () => {
         // User is already subscribed, show alert
         toast.error("User with email already exists");
       } else {
-        console.error(error);
         toast.error("Registration failed. Please try again.");
       }
     }
