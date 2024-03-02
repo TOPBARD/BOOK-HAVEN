@@ -11,11 +11,11 @@ import {
 import { CreateBookDto } from './dto/create-book.dto';
 import { BookService } from './book.service';
 import { UpdateBookDto } from './dto/update-book.dto';
-import { BookCategory } from '../../src/shared/emun/Book-category';
+import { BookCategory } from '../shared/emun/Book-category';
 import { Book } from './schema/book.schema';
-import { JwtAuthGuard } from '../../src/auth/guard/jwt-auth.guard';
-import { AdminGuard } from '../../src/auth/guard/admin.guard';
-import { BookSpecialCategory } from '../../src/shared/emun/Book-special-Category';
+import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
+import { AdminGuard } from '../auth/guard/admin.guard';
+import { BookSpecialCategory } from '../shared/emun/Book-special-Category';
 
 @Controller('books')
 export class BookController {
@@ -100,6 +100,6 @@ export class BookController {
   @UseGuards(JwtAuthGuard, AdminGuard)
   @Delete(':id')
   async deleteBook(@Param('id') id: string): Promise<Book> {
-    return await this.bookService.deleteBook(id)
+    return await this.bookService.deleteBook(id);
   }
 }

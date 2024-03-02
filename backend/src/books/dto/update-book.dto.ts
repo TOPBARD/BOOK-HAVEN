@@ -1,4 +1,11 @@
-import { IsString, IsOptional, MinLength, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsOptional,
+  MinLength,
+  MaxLength,
+  IsEnum,
+} from 'class-validator';
+import { BookCategory } from '../../shared/emun/Book-category';
 
 export class UpdateBookDto {
   @IsString({ message: 'Title must be a string' })
@@ -11,10 +18,8 @@ export class UpdateBookDto {
   @MaxLength(100, { message: 'Author cannot be longer than 100 characters' })
   author: string;
 
-  @IsString({ message: 'Category must be a string' })
-  @MinLength(2, { message: 'Category must be at least 2 characters long' })
-  @MaxLength(50, { message: 'Category cannot be longer than 50 characters' })
-  category: string;
+  @IsEnum({ message: 'Category must be a valid category' })
+  category: BookCategory;
 
   @IsString({ message: 'Description must be a string' })
   @MinLength(10, { message: 'Description must be at least 10 characters long' })

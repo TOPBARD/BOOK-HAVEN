@@ -10,7 +10,7 @@ import {
   MaxLength,
 } from 'class-validator';
 import { BookSpecialCategory } from '../../shared/emun/Book-special-Category';
-import { BookCategory } from '../../../src/shared/emun/Book-category';
+import { BookCategory } from '../../shared/emun/Book-category';
 
 class BookDetailsDto {
   @IsNotEmpty({ message: 'Book price cannot be empty' })

@@ -25,44 +25,9 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "strictBindCallApply": false
+    "strictBindCallApply": false,
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
   }
 }
-
-// {
-//   "compilerOptions": {
-//     "alwaysStrict": true, //part of strict
-//     "module": "commonjs",
-//     "allowJs": true,
-//     "esModuleInterop": true,
-//     "declaration": true,
-//     "experimentalDecorators": true,
-//     "emitDecoratorMetadata": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "target": "es6",
-//     "moduleResolution": "node",
-//     "noImplicitAny": true, //part of strict
-//     "noImplicitThis": true, //part of strict
-//     "noUnusedLocals": true,
-//     "resolveJsonModule": true,
-//     "strictBindCallApply": true,
-//     "strictNullChecks": true, //part of strict
-//     "strictFunctionTypes": true,
-//     "sourceMap": true,
-//     "outDir": "dist",
-//     "baseUrl": "./",
-//     "paths": {
-//       "*": ["node_modules/*", "src/types/*"]
-//     },
-//     "lib": ["es2018", "es2019", "dom"],
-//     "types": ["reflect-metadata", "jest", "node"]
-//   },
-//   "include": [
-//     "src/**/*",
-//     "jest.config.js",
-//     "src/locales/*.json",
-//     "test/**/*.ts",
-//     "test/mock-files/*.js"
-//   ],
-//   "exclude": ["**/*.spec.ts", "src/test/**/*.e2e-spec.ts"]
-// }

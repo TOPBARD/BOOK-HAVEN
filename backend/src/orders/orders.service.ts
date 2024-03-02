@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CartItem } from '../../src/shared/interface/CartItem';
+import { CartItem } from '../shared/interface/CartItem';
 import Stripe from 'stripe';
 
 @Injectable()

@@ -2,9 +2,9 @@ import { Module, forwardRef } from '@nestjs/common';
 import { UserService } from './user.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './schema/user.schema';
-import { AuthModule } from '../../src/auth/auth.module';
+import { AuthModule } from '../auth/auth.module';
 import { UserController } from './user.controller';
-import { JwtConfigModule } from '../../src/shared/jwt/jwt.module';
+import { JwtConfigModule } from '../shared/jwt/jwt.module';
 
 @Module({
   imports: [

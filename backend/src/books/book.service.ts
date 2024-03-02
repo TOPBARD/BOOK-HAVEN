@@ -5,8 +5,8 @@ import { Book } from './schema/book.schema';
 import { CreateBookDto } from './dto/create-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 import { BookDetails } from './schema/book-details.schema';
-import { BookCategory } from '../../src/shared/emun/Book-category';
-import { BookSpecialCategory } from '../../src/shared/emun/Book-special-Category';
+import { BookCategory } from '../shared/emun/Book-category';
+import { BookSpecialCategory } from '../shared/emun/Book-special-Category';
 
 @Injectable()
 export class BookService {
