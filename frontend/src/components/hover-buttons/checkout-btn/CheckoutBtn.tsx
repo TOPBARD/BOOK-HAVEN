@@ -2,6 +2,7 @@ import axios from "axios";
 import { CartItem } from "../../../shared/interface/CartItem";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import toast from "react-hot-toast";
+import { useAuth } from "../../../shared/context/AuthProvider";
 
 /**
  * CheckoutBtn component provides a button for users to proceed to checkout.
@@ -18,6 +19,7 @@ export default function CheckoutBtn({
   cart: CartItem[];
   totalCartQuantity: number;
 }): React.ReactElement {
+  const { token } = useAuth();
   /**
    * Handles the click event when the user initiates the checkout process.
    */
@@ -42,7 +44,12 @@ export default function CheckoutBtn({
       // Send a POST request to the server to create a checkout session
       const response = await axios.post(
         `${process.env.BACKEND_URL}/orders/checkout`,
-        cartObj
+        cartObj,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       // Redirect the user to the Stripe Checkout page using the session ID
