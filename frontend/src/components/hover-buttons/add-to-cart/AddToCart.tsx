@@ -1,17 +1,7 @@
-import React, { ReactElement } from "react";
-import { IconBaseProps } from "react-icons";
+import React from "react";
 import toast from "react-hot-toast";
-import { Book } from "../../../shared/interface/Books";
 import { useCart } from "../../../shared/context/CartProvider";
-
-// Define the prop types for the AddToCart component
-interface AddToCartProps {
-  btnStyles: string;
-  book: Book;
-  id: string;
-  icon?: ReactElement<IconBaseProps>;
-  name?: string;
-}
+import { AddToCartProps } from "../../../shared/interface/AddToCartProps";
 
 /**
  * AddToCart component allows users to add a book to the cart.

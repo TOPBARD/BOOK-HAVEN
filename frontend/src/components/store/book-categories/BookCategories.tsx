@@ -60,8 +60,8 @@ export default function BookCategories() {
                     {filteredBooks.length > 1
                       ? `${filteredBooks.length} items`
                       : filteredBooks.length === 0
-                      ? `${filteredBooks.length} items`
-                      : `${filteredBooks.length} item`}
+                        ? `${filteredBooks.length} items`
+                        : `${filteredBooks.length} item`}
                     )
                   </div>
                 </div>

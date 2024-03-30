@@ -5,13 +5,7 @@ import { useCart } from "../../shared/context/CartProvider";
 import { useAuth } from "../../shared/context/AuthProvider";
 import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
-import { NavItem } from "../../shared/interface/NavItems";
-
-const navData: NavItem[] = [
-  { id: 1, name: "Home", path: "/" },
-  { id: 2, name: "Store", path: "/store" },
-  { id: 3, name: "Contact", path: "/contact-us" },
-];
+import { navData } from "../../shared/constant/Navdata";
 
 /**
  * Navbar component represents the navigation bar of the application.
