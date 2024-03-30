@@ -1,6 +1,8 @@
 # Book-Haven 📚
 
-Welcome to Book-Haven, your ultimate online bookstore where book lovers unite! 
+Welcome to Book-Haven, your ultimate online bookstore where book lovers unite!
+
+![Homepage](https://github.com/TOPBARD/BOOK-HAVEN/blob/main/frontend/public/Homepage.png?raw=true)
 
 ## Main Features:
 
@@ -29,31 +31,43 @@ Welcome to Book-Haven, your ultimate online bookstore where book lovers unite!
 - Chakra UI
 - Stripe
 
+## Screenshots:
+
+![Storepage](https://github.com/TOPBARD/BOOK-HAVEN/blob/main/frontend/public/Storepage.png?raw=true)
+
+![Popularbooks](https://github.com/TOPBARD/BOOK-HAVEN/blob/main/frontend/public/Popular.png?raw=true)
+
+![Stripe](https://github.com/TOPBARD/BOOK-HAVEN/blob/main/frontend/public/Stripe.png?raw=true)
+
+![ContactUs](https://github.com/TOPBARD/BOOK-HAVEN/blob/main/frontend/public/Contactpage.png?raw=true)
+
 ## How to Start the Project:
 
 ### Backend:
+
 1. **Navigate to Backend Directory:** `cd backend`
 2. **Install Dependencies:** Run `npm i` to install dependencies.
-3. **Create .env File:** Create a .env file with the following variables: 
-    ```
-    PORT=...
-    MONGO_URI=...
-    JWT_SECRET_KEY=...
-    JWT_SECRET_EXPIRY=...
-    FRONTEND_URL=...
-    STRIPE_CURRENCY=...
-    STRIPE_PUBLIC_KEY=...
-    STRIPE_SECRET_KEY=...
-    ```
+3. **Create .env File:** Create a .env file with the following variables:
+   ```
+   PORT=...
+   MONGO_URI=...
+   JWT_SECRET_KEY=...
+   JWT_SECRET_EXPIRY=...
+   FRONTEND_URL=...
+   STRIPE_CURRENCY=...
+   STRIPE_PUBLIC_KEY=...
+   STRIPE_SECRET_KEY=...
+   ```
 4. **Start Development Server:** Run `npm run start:dev` to start the development server.
 
 ### Frontend:
+
 1. **Navigate to Frontend Directory:** `cd frontend`
 2. **Install Dependencies:** Run `npm i` to install dependencies.
 3. **Create .env File:** Create a .env file with the following variable:
-    ```
-    BACKEND_URL=...
-    ```
+   ```
+   BACKEND_URL=...
+   ```
 4. **Start Vite Application:** Run `npm run dev` to start the Vite application.
 
 That's it! You're all set to explore the vast world of books with Book-Haven. Happy reading! 📚
