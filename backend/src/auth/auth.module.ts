@@ -7,12 +7,6 @@ import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './local.strategy';
 import { JwtStrategy } from './jwt.strategy';
 
-/**
- * The `AuthModule` encapsulates the authentication-related functionality
- * of the application, including user authentication and authorization.
- *
- * @module
- */
 @Module({
   imports: [forwardRef(() => UserModule), JwtConfigModule, PassportModule],
   controllers: [AuthController],

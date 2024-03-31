@@ -12,7 +12,7 @@ import { OrderModule } from './orders/orders.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(process.env.MONGO_URI || ''),
+    MongooseModule.forRoot(process.env.MONGO_URI as string),
     JwtConfigModule,
     OrderModule,
     BookModule,

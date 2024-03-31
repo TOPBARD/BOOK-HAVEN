@@ -12,21 +12,8 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { Request } from 'express';
 import { User } from '../user/schema/user.schema';
 
-/**
- * The `AuthService` provides authentication and authorization services.
- *
- * @Injectable
- * @exports
- */
 @Injectable()
 export class AuthService {
-  /**
-   * Creates an instance of `AuthService`.
-   *
-   * @constructor
-   * @param {UserService} userService - The user service for interacting with user data.
-   * @param {JwtService} jwtService - The JWT service for handling JSON Web Tokens.
-   */
   constructor(
     @Inject(forwardRef(() => UserService))
     private readonly userService: UserService,

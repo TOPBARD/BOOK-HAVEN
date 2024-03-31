@@ -5,19 +5,8 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { LocalAuthGuard } from '../auth/guard/local-auth.guard';
 import { User } from '../user/schema/user.schema';
 
-/**
- * The `AuthController` handles authentication-related HTTP requests,
- * such as user registration and login.
- *
- * @controller
- * @exports
- */
 @Controller('auth')
 export class AuthController {
-  /**
-   * Creates an instance of `AuthController`.
-   * @param {AuthService} authService - The authentication service.
-   */
   constructor(private readonly authService: AuthService) {}
 
   /**

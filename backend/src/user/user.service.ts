@@ -31,16 +31,13 @@ export class UserService {
     const { email, firstName, lastName, password } = registerUserDto;
     const lowerEmail = email.toLowerCase();
 
-    // Check if user with provided email already exists
     const existingUser = await this.userModel.findOne({ email: lowerEmail });
     if (existingUser) {
       throw new ConflictException('User with email already exists');
     }
 
-    // Hash the password before storing it
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create and save the new user
     const savedUser = await this.userModel.create({
       firstName,
       lastName,

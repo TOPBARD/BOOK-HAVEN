@@ -35,7 +35,7 @@ const Login: React.FC = () => {
       toast.success("Login Successful!!");
       setTimeout(() => {
         window.location.href = "/";
-      }, 2000);
+      }, 1000);
     } catch (error) {
       toast.error("Invalid credentials");
     }

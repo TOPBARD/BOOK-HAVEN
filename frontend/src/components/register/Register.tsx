@@ -22,7 +22,7 @@ const Register: React.FC = () => {
       toast.success("Registration Successful!!");
       setTimeout(() => {
         window.location.href = "/login";
-      }, 2000);
+      }, 1000);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 409) {
         // User is already subscribed, show alert
