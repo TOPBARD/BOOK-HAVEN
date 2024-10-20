@@ -17,6 +17,15 @@ export default function BookCategories() {
   const [books, setBooks] = useState<Book[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<Book[]>(books);
   const [price, setPrice] = useState<number>(700);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (books && books.length > 0) {
+      setLoading(false);
+    }
+  }, [books]);
+  const renderLoadingPlaceholders = () => {
+    return Array.from({ length: 10 }).map((_) => <BookCard book={null} />);
+  };
 
   useEffect(() => {
     // Fetch books data based on selected category
@@ -103,9 +112,11 @@ export default function BookCategories() {
           <div className="w-full xl:w-[950px] ml-auto">
             {/* Display BookCard components for each filtered book */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px]">
-              {filteredBooks.map((book, index) => {
-                return <BookCard book={book} key={index} />;
-              })}
+              {loading
+                ? renderLoadingPlaceholders()
+                : filteredBooks.map((book, index) => {
+                    return <BookCard book={book} key={index} />;
+                  })}
             </div>
           </div>
         </div>

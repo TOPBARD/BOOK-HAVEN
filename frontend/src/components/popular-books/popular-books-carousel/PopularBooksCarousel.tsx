@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -25,6 +25,19 @@ import { Book } from "../../../shared/interface/Books";
 const PopularBooksCarousel: React.FC<PopularBooksCarouselProps> = ({
   books,
 }: PopularBooksCarouselProps) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (books && books.length > 0) {
+      setLoading(false);
+    }
+  }, [books]);
+  const renderLoadingPlaceholders = () => {
+    return Array.from({ length: 10 }).map((_, index) => (
+      <SwiperSlide key={index}>
+        <BookCard book={null} />
+      </SwiperSlide>
+    ));
+  };
   return (
     // Initialize Swiper component with responsive settings and pagination
     <Swiper
@@ -50,13 +63,14 @@ const PopularBooksCarousel: React.FC<PopularBooksCarouselProps> = ({
       modules={[Pagination]}
       className="popular-books-slider mb-8"
     >
-      {/* Map through the books array and create SwiperSlides for each book */}
-      {books.map((book: Book) => (
-        <SwiperSlide key={book._id}>
-          {/* Render BookCard component for each book */}
-          <BookCard book={book} />
-        </SwiperSlide>
-      ))}
+      {/* If loading, render loading placeholders, otherwise map through the books */}
+      {loading
+        ? renderLoadingPlaceholders() // Show placeholder spinners
+        : books.map((book: Book) => (
+            <SwiperSlide key={book._id}>
+              <BookCard book={book} /> {/* Render actual book data */}
+            </SwiperSlide>
+          ))}
     </Swiper>
   );
 };
