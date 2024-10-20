@@ -26,7 +26,7 @@ export default function CheckoutBtn({
   const cartCheckout = async (): Promise<void> => {
     // Load Stripe and get the Stripe public key from the environment variables
     const stripe: Stripe | null = await loadStripe(
-      process.env.STRIPE_PUBLIC_KEY || ""
+      process.env.STRIPE_PUBLIC_KEY as string
     );
 
     // Prepare the cart object to be sent to the server
@@ -57,7 +57,7 @@ export default function CheckoutBtn({
         sessionId: response.data.sessionId,
       });
     } catch (error) {
-      toast.error("Error during checkout");
+      toast.error("Please Login for Checkout");
     }
   };
 

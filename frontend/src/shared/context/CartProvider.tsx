@@ -8,7 +8,6 @@ import {
 import { Book } from "../interface/Books";
 import { CartItem } from "../interface/CartItem";
 import { CartContextProps } from "../interface/CartContextProps";
-import toast from "react-hot-toast";
 
 // Create the CartContext with initial value undefined
 export const CartContext = createContext<CartContextProps | undefined>(
@@ -30,12 +29,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [shouldDisplayCart, setShouldDisplayCart] = useState<boolean>(false);
 
   // Function to handle cart display based on login status
-  const handleCartDisplay = (isLoggedIn: boolean) => {
-    if (isLoggedIn) {
-      setShouldDisplayCart(!shouldDisplayCart);
-    } else {
-      toast.error("Please Login To View Cart");
-    }
+  const handleCartDisplay = () => {
+    setShouldDisplayCart(!shouldDisplayCart);
   };
 
   // Function to add a book to the cart

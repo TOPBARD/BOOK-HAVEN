@@ -23,9 +23,7 @@ const PopularBooks: React.FC = () => {
         `${process.env.BACKEND_URL}/books/special-category/${BookSpecialCategory.POPULAR}`
       );
       setPopularBooks(response.data);
-    } catch (error) {
-      console.log("Error fetching popular books");
-    }
+    } catch (error) {}
   };
 
   // useEffect to fetch data on component mount

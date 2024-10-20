@@ -9,7 +9,6 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,json,md}'"
-    
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
