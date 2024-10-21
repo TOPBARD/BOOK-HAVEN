@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import { CreateBookDto } from './dto/create-book.dto';
 import { BookService } from './book.service';
@@ -16,6 +17,7 @@ import { Book } from './schema/book.schema';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { AdminGuard } from '../auth/guard/admin.guard';
 import { BookSpecialCategory } from '../shared/emun/Book-special-Category';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 
 @Controller('books')
 export class BookController {
@@ -36,6 +38,7 @@ export class BookController {
    * Endpoint to retrieve all books.
    * @returns A list of all books.
    */
+  @UseInterceptors(CacheInterceptor)
   @Get()
   async findAll(): Promise<Book[]> {
     return await this.bookService.findAll();
@@ -46,6 +49,7 @@ export class BookController {
    * @param id - The ID of the book to find.
    * @returns The found book.
    */
+  @UseInterceptors(CacheInterceptor)
   @Get(':id')
   async findById(@Param('id') id: string): Promise<Book> {
     return await this.bookService.findById(id);
@@ -56,6 +60,7 @@ export class BookController {
    * @param bookCategory - The category of books to retrieve.
    * @returns A list of books in the specified category.
    */
+  @UseInterceptors(CacheInterceptor)
   @Get('category/:category')
   async findByCategory(
     @Param('category') bookCategory: BookCategory,
@@ -68,6 +73,7 @@ export class BookController {
    * @param bookSpecialCategory - The special category of books to retrieve.
    * @returns A list of books in the specified special category.
    */
+  @UseInterceptors(CacheInterceptor)
   @Get('special-category/:category')
   async findBookBySpecialCategory(
     @Param('category') bookSpecialCategory: BookSpecialCategory,
